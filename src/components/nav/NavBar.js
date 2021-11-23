@@ -2,8 +2,9 @@ import React from "react"
 import { Link } from "react-router-dom"
 import "./NavBar.css"
 
-export const NavBar = (props) => {
+export const NavBar = () => {
     return (
+        <>
         <ul className="navbar">
             <li className="navbar__item active">
                 <Link className="navbar__link" to="/customers">Customers</Link>
@@ -12,7 +13,13 @@ export const NavBar = (props) => {
                 <Link className="navbar__link" to="/employees">Employees</Link>
             </li>
             <li className="navbar__item active">
+                <Link className="navbar__link" to="/employees/create">Application form</Link>
+            </li>
+            <li className="navbar__item active">
                 <Link className="navbar__link" to="/tickets">Service Tickets</Link>
+            </li>
+            <li className="navbar__item active">
+                <Link className="navbar__link" to="/tickets/create">Service Form</Link>
             </li>
             <li className="navbar__item active">
                 <Link className="navbar__link" to="#"
@@ -25,5 +32,6 @@ export const NavBar = (props) => {
                     </Link>
             </li>
         </ul>
+        </>
     )
 }
