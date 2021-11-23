@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react"
+import { useHistory } from "react-router-dom" 
 
 export const EmployeeList = () =>{
         //declares state variables
         const [employees, setEmployees] = useState([])
         const [specialty, setSpecialty] = useState("")
+        const history = useHistory()
     // a function that takes 2 arguments, 
     // to run code when any state changes just like event listener
         useEffect(
@@ -33,6 +35,9 @@ export const EmployeeList = () =>{
     
         return (
             <>
+                <div>
+                    <button onClick={() => history.push("/employees/create")}>Hire Employee</button>
+                </div>
                 <div>specialty: {specialty}</div>
                 {
                 //interpolation in jsx , this allows us to put js in here
@@ -43,7 +48,7 @@ export const EmployeeList = () =>{
                     //then use a parameter to to capture each individual object as it iterates "employee obj"
     
                      (employeeObject) => {
-                        return <p key={`employee--${employeeObject.id}`}>{employeeObject.name}</p>
+                        return <p key={`employee--${employeeObject.id}`}>{employeeObject.name}: {employeeObject.specialty}</p>
                         }
                       )
                  }
